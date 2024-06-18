@@ -511,51 +511,47 @@ $(document).ready(function(){
     });
     
     jQuery(function(a) {
-        try {
-            ymaps.ready(function() {
-                if (a(window).width() > 700) var t = new ymaps.Map("con_map", {
-                    center: [55.730454, 38.212379],
-                    zoom: 16
-                });
-                else t = new ymaps.Map("con_map", {
-                    center: [55.664549, 37.598004],
-                    zoom: 16
-                });
-                myPlacemark1 = new ymaps.Placemark([55.7306, 38.2126], {
-                    balloonContent: ""
-                }, {
-                    iconLayout: "default#image",
-                    iconImageHref: "../assets/img/point.svg",
-                    iconImageSize: [50, 63],
-                    iconImageOffset: [-25, -30]
-                }), t.behaviors.disable("scrollZoom");
-                var e = {
-                    Android: function() {
-                        return navigator.userAgent.match(/Android/i)
-                    },
-                    BlackBerry: function() {
-                        return navigator.userAgent.match(/BlackBerry/i)
-                    },
-                    iOS: function() {
-                        return navigator.userAgent.match(/iPhone|iPad|iPod/i)
-                    },
-                    Opera: function() {
-                        return navigator.userAgent.match(/Opera Mini/i)
-                    },
-                    Windows: function() {
-                        return navigator.userAgent.match(/IEMobile/i)
-                    },
-                    any: function() {
-                        return e.Android() || e.BlackBerry() || e.iOS() || e.Opera() || e.Windows()
-                    }
-                };
-                e.any() && t.behaviors.disable("drag"), t.geoObjects.add(myPlacemark1), myPlacemark1.events.add("click", function() {
-                    a("div#office").addClass("active")
-                })
-            })
-        }catch (e) {
-            console.log(e);
-        }
+    ymaps.ready(function() {
+    if (a(window).width() > 700) var t = new ymaps.Map("con_map", {
+      center: [55.730454, 38.212379],
+      zoom: 16
+    });
+    else t = new ymaps.Map("con_map", {
+      center: [55.664549, 37.598004],
+      zoom: 16
+    });
+    myPlacemark1 = new ymaps.Placemark([55.7306, 38.2126], {
+      balloonContent: ""
+    }, {
+      iconLayout: "default#image",
+      iconImageHref: "../assets/img/point.svg",
+      iconImageSize: [50, 63],
+      iconImageOffset: [-25, -30]
+    }), t.behaviors.disable("scrollZoom");
+    var e = {
+      Android: function() {
+        return navigator.userAgent.match(/Android/i)
+      },
+      BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i)
+      },
+      iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i)
+      },
+      Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i)
+      },
+      Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i)
+      },
+      any: function() {
+        return e.Android() || e.BlackBerry() || e.iOS() || e.Opera() || e.Windows()
+      }
+    };
+    e.any() && t.behaviors.disable("drag"), t.geoObjects.add(myPlacemark1), myPlacemark1.events.add("click", function() {
+      a("div#office").addClass("active")
+    })
+  })
     });
     
     $('.vacancy_slider').slick({
