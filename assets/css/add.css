@@ -1640,9 +1640,6 @@ footer {
     padding: 300px 260px;
     text-align: center;
 }
-body.loading {
-    overflow: hidden;
-}
 .loader {
     display: flex;
     align-items: center;
